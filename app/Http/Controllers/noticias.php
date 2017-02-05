@@ -57,7 +57,7 @@ class noticias extends Controller
         $noticia->UrlImg=$file_route;
 
         $noticia->save();
-        dd('solucion error');
+        dd('datos guardados');
 
     }
 
