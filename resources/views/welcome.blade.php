@@ -7,6 +7,8 @@
 
         <title>Laravel</title>
 
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -77,19 +79,36 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+         <div class="container">
+            <h1>Noticias</h1>
+         <div class="row">
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+             @if(isset($noticias))
+            
+            @foreach($noticias as $n)
+            
+                <div class="col-xs-12 col-sm-6"></div>
+                <div class="panel panel-primary" style="max-width: 350px;">
+                  <div class="panel-heading">
+                    <h2 class="panel-title">{{$n->titulo}}</h2>
+                    
+                    
+                  </div>
+                  <div class="panel-body">
+                  <img style="max-width: 150px;" src="imgnoticias/{{ $n->URLIMG }}" >
+                  <p>{{$n->descripcion}}</p>
+                  </div>
+                  <div class="panel-footer">Panel footer</div>
                 </div>
-            </div>
+            @endforeach
+
+            @endif
+            
+        </div>   
+
+        </div> 
+         </div>
+
         </div>
     </body>
 </html>

@@ -19,9 +19,12 @@ class noticias extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function mostrar()
     {
-        //
+
+        $noticias = noticia::all();
+
+        return view('welcome')->with(['noticias'=>$noticias]);
     }
 
     /**
@@ -92,7 +95,9 @@ class noticias extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $noticia= noticia::find($id);
+        return view('home')->with(['edit' => true, 'noticia'=>$noticia]);
     }
 
     /**
@@ -104,7 +109,33 @@ class noticias extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request,[
+            'titulo'=>'required',
+            'descripcion'=> 'required',
+
+            ]);
+
+        $noticia = noticia::find($id);
+        $noticia->titulo=$request->titulo;
+        $noticia->descripcion=$request->descripcion;
+
+        $img = $request->file('UrlImg');
+        $file_route = $img->getClientOriginalName();
+
+        Storage::disk('imgnoticias')->put($file_route, file_get_contents($img->getRealPath()));
+
+        Storage::disk('imgnoticias')->delete($request->$file_route);
+
+        $noticia->URLIMG=$file_route;
+
+        if($noticia->save()){
+
+        return redirect('home');
+        }else{
+            return back()->with('msj2','no se guardaron los datos');
+
+        }
+        
     }
 
     /**
@@ -115,6 +146,8 @@ class noticias extends Controller
      */
     public function destroy($id)
     {
-        //
+        noticia::destroy($id);
+
+        return back();
     }
 }

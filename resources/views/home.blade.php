@@ -10,8 +10,14 @@
                 <div class="panel-body">
                     <p>ESTAS LOGEADO</p>
 
-                    @include('layouts.formulario')
-                    @include('layouts.tabla')
+                    @if(isset($edit))
+                        @include('layouts.modificar')
+                        
+                    @else
+                        @include('layouts.formulario')
+                        @include('layouts.tabla')
+                    @endif
+
                 </div>
             </div>
         </div>
