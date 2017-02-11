@@ -13,7 +13,7 @@ class noticia extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'descripcion', 'UrlImg',
+        'name', 'descripcion', 'URLIMG',
     ];
 
 }

@@ -11,6 +11,7 @@
                     <p>ESTAS LOGEADO</p>
 
                     @include('layouts.formulario')
+                    @include('layouts.tabla')
                 </div>
             </div>
         </div>

@@ -1,4 +1,13 @@
-<form class="form-horizontal"  method="POST" action="{{ url('noticias') }}" enctype="multipart/form-data">
+@if (session()->has('msj'))
+<div class="alert alert-success" role="alert">{{session('msj')}}</div>
+
+
+@endif
+@if (session()->has('msj2'))
+<div class="alert alert-danger" role="alert">{{session('msj2')}}</div>
+@endif
+
+<form class="form-horizontal"  method="POST" action="{{ url('noticias') }}"   enctype="multipart/form-data">
 {{csrf_field()}}
   <div class="form-group">
     <label for="titulo" class="col-sm-2 control-label">Titulo</label>

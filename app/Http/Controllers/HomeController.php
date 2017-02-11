@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\noticia;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $noticias = noticia::all();
+        return view('home')->with(['noticias'=>$noticias]);
+
+
     }
 }

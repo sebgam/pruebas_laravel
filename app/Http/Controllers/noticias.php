@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\noticia;
 
-use storage;
+use Illuminate\Support\Facades\Storage;
+
+
 
 
 class noticias extends Controller
@@ -50,14 +53,23 @@ class noticias extends Controller
         $noticia->descripcion=$request->descripcion;
 
         $img = $request->file('UrlImg');
-        $file_route = time().'_'.$img->getClientOriginalName();
+        $file_route = $img->getClientOriginalName();
 
         Storage::disk('imgnoticias')->put($file_route, file_get_contents($img->getRealPath()));
 
-        $noticia->UrlImg=$file_route;
 
-        $noticia->save();
-        dd('datos guardados');
+
+        $noticia->URLIMG=$file_route;
+
+        if($noticia->save()){
+
+        return back()->with('msj','datos guardados');
+        }else{
+            return back()->with('msj2','no se guardaron los datos');
+
+        }
+        
+
 
     }
 
