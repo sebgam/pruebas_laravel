@@ -11,12 +11,6 @@
 |
 */
 
-Route::get('/','noticias@mostrar');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-//noticias
-
-Route::resource('/noticias','noticias');
+Route::get('/', function () {
+    return view('welcome');
+});
