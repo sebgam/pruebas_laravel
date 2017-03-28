@@ -78,8 +78,8 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-lg">
+                    sebas
                 </div>
 
                 <div class="links">
