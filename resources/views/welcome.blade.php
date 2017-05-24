@@ -1,95 +1,52 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inicio</title>
+    <link href="{{aset ('public/img/resouses')}}">
+</head>
+<body>
+    
+<h1></h1>
+<form action="" method="POST">
+    <input type="text" name="usuario" id="user">
+    <input type="text" name="contraseña" id="pass">
+    <input type="password" name="restPassword">
+    <input type="submit" name="lista" id="lista" >
+    <input type="reset" name="reset" id="reset">
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <select name="opciones" id="option">
+        <option value="01">option_1</option>
+        <option value="02">option_2</option>
+        <option value="03">option_3</option>
+        <option value="04">option_4</option>
+</select>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+<textarea name="comentarios" id="comet" cols="40" rows="20"></textarea>
+<button value="enviar">Enviar</button>
+<button value="volver">Volver</button>
 
-            .full-height {
-                height: 100vh;
-            }
+</form>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+<script>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+    var user == 'user';
+    var usuario = document.getElementById('user');
 
-            .title {
-                font-size: 84px;
-            }
+    if (usuario == user){
+        alert("la nueva contraseña se envio a su correo electronico");
+    }else{
+        alert("usuario incorrecto intente nuevamente");
+    }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-lg">
-                    sebas
-                </div>
+</script>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
+
+
+</body>
 </html>
