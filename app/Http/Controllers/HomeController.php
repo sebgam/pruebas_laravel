@@ -23,6 +23,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with($user, $user);
+
+        if ($user == $userController ) {
+            session_start($user);
+        }else{
+            session_write_close($user)
+        }
+
+
     }
 }
