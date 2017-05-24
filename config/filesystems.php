@@ -42,10 +42,6 @@ return [
     */
 
     'disks' => [
-      'imgnoticias' => [
-            'driver' => 'local',
-            'root' => public_path('imgnoticias'),
-        ],
 
         'local' => [
             'driver' => 'local',
